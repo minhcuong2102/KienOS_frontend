@@ -1,7 +1,7 @@
 export const rootPaths = {
-  // root: "https://kienos-backend-4w2a.onrender.com",
+  root: "https://kienos-backend-4w2a.onrender.com",
   // root:"http://192.168.110.40:8000",
-  root:"http://192.168.1.6:8000",
+  // root:"http://192.168.1.6:8000",
   homeRoot: "/home",
   authRoot: "/auth",
   errorRoot: "/error",
