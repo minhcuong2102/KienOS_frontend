@@ -9,6 +9,7 @@ export const rootPaths = {
   coachRoot: "/coach",
   saleRoot: "/sale",
   customerRoot: "/customer",
+  nodejsRoot: "https://kienos-nodejs-j3x1.onrender.com"
 };
 
 export default {
