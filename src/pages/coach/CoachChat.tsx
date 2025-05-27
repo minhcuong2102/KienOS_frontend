@@ -77,7 +77,7 @@ const CoachChat: React.FC = () => {
     if (coachProfile.id) {
       const fetchConversations = async () => {
         try {
-          const response = await axiosPrivate.get(rootPaths.root + `/nodejs/chat/getChatMenuOfCoachId/${coachProfile.id}`);
+          const response = await axiosPrivate.get(rootPaths.nodejsRoot + `/nodejs/chat/getChatMenuOfCoachId/${coachProfile.id}`);
           setConversations(response.data);
           //console.log(response)
         } catch (error) {
@@ -91,7 +91,7 @@ const CoachChat: React.FC = () => {
 
   const fetchMessages = async (coachId, customerId) => {
     try {
-      const response = await axiosPrivate.get(rootPaths.root + `/nodejs/chat/getAllChatsOfCustomerIdAndCoachId?sendFrom=coach&coachId=${coachId}&customerId=${customerId}`);
+      const response = await axiosPrivate.get(rootPaths.nodejsRoot + `/nodejs/chat/getAllChatsOfCustomerIdAndCoachId?sendFrom=coach&coachId=${coachId}&customerId=${customerId}`);
       const sortedMessages = response.data.sort((a, b) => new Date(a.sent_at) - new Date(b.sent_at));
       setMessages(sortedMessages);
     } catch (error) {
@@ -144,7 +144,7 @@ const CoachChat: React.FC = () => {
       };
   
       try {
-        await axiosPrivate.post(rootPaths.root + '/nodejs/chat/sendMessage', newMessage);
+        await axiosPrivate.post(rootPaths.nodejsRoot + '/nodejs/chat/sendMessage', newMessage);
         setMessages((prevMessages) => [
           ...prevMessages,
           {
@@ -216,7 +216,7 @@ const CoachChat: React.FC = () => {
 
   const handleOpenDialog = async () => {
     try {
-      const response = await axiosPrivate.get(rootPaths.root + '/nodejs/chat/getAllCustomerProfilesInContractWithCoachId/'+coachProfile.id);
+      const response = await axiosPrivate.get(rootPaths.nodejsRoot + '/nodejs/chat/getAllCustomerProfilesInContractWithCoachId/'+coachProfile.id);
       setCustomers(response.data);
       console.log("handleOpenDialog")
       console.log(response.data)
