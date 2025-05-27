@@ -1,0 +1,115 @@
+/* CSS cho phần khung xem tin nhắn */
+.cs-conversation-header {
+    background-color: #1f2029;
+    border: none !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    padding: 15px 15px 15px 15px !important;
+    border-bottom: 1.5px solid #171821 !important;
+}
+
+/* CSS cho phần hiển thị các cuộc trò chuyện */
+.cs-conversation.cs-conversation--active {
+    border-radius: 5px !important;
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
+}   
+
+.cs-conversation.cs-conversation--active .cs-conversation__name, .cs-conversation.cs-conversation--active .cs-conversation__info {
+    color: white !important;
+}
+.cs-message--outgoing .cs-message__content {
+    border-bottom-right-radius: .7em !important;
+}
+
+.cs-message--incoming .cs-message__content {
+    border-bottom-left-radius: .7em !important;
+}
+
+.cs-conversation {
+    border-radius: 5px !important;
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
+}
+
+.cs-conversation__last-sender, .cs-conversation__info-content {
+    color: #b0b3b8  !important;
+}
+.cs-conversation__name {
+    font-weight: bold !important;
+    color: #ffffff !important;
+}
+
+.cs-conversation-header__user-name {
+    background-color: #1f2029 !important;
+    color: #ffffff !important;
+}
+
+.cs-conversation-header__info {
+    background-color: #1f2029 !important;
+    color: #faeed7 !important;
+    font-weight: bold;
+}
+
+.cs-typing-indicator {
+    background-color: #1f2029 !important;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.cs-chat-container {
+    background-color: #171821 !important;
+}
+
+.cs-main-container {
+    border: none !important;
+}
+
+.cs-message-list {
+    background-color: #1f2029 !important;
+}
+
+/* CSS cho phần tìm kiếm cuộc trò chuyện */
+.cs-search {
+    background-color: #2b2f33 !important;
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 60px;
+}
+
+.cs-search__input {
+    background-color: #2b2f33 !important;
+    color: white !important;
+}
+
+.cs-search__input::placeholder {
+    color: rgb(255, 182, 182) !important;
+    font-weight: lighter !important;
+}
+
+
+/* CSS cho phần nhập tin nhắn */
+.cs-message-input__content-editor-wrapper {
+    background-color: #2b2f33 !important;
+    margin-left: 13px;
+}
+
+.cs-message-input__content-editor {
+    background-color: #2b2f33 !important;
+    color: white !important;
+}
+
+.cs-message-input__content-editor[data-placeholder]:empty:before {
+    color: rgb(255, 182, 182) !important;
+    font-weight: lighter;
+}
+
+.cs-message-input {
+    background-color: #1f2029 !important;
+    padding: 15px 15px 15px 15px !important;
+    border: none !important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    border-top: 1.5px solid #171821 !important;
+    
+}
