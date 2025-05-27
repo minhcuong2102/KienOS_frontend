@@ -1,7 +1,7 @@
 // socket.js
 import { io } from "socket.io-client";
 
-const socket = io("http://192.168.1.6:8888", {
+const socket = io("https://kienos-nodejs-j3x1.onrender.com", {
     transports: ["websocket"],
     withCredentials: true,
   });
