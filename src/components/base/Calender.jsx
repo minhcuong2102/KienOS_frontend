@@ -156,7 +156,7 @@ const Calendar = () => {
   const fetchTrainingPlansByCustomer = async (customerId) => {
     try {
       setIsLoading(true);
-      const url = rootPaths.root + `/api/v1/training-plans/get-by-customers?customer=${customerId}`;
+      const url = rootPaths.root + `/api/v1/training-plans/get-by-customers/?customer=${customerId}`;
 
       const response = await axiosPrivate.get(url);
 
