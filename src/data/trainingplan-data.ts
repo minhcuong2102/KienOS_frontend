@@ -17,7 +17,7 @@ export const useTrainingPlanData = (reloadTrigger: number, selectedValue: string
         const url = selectedValue
           ? rootPaths.root + `/api/v1/training-plans/get-by-customers/?customer=${selectedValue}`
           : rootPaths.root + `/api/v1/training-plans/get-by-customers/`;
-
+          console.log(url);
         const response = await axiosPrivate.get(url, 
           {
             withCredentials: true,
