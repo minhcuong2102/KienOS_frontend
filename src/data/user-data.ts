@@ -13,7 +13,7 @@ export const useUsersData = (reloadTrigger: number) => {
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        const response = await axiosPrivate.get(rootPaths.root + "/api/v1/users", {
+        const response = await axiosPrivate.get(rootPaths.root + "/api/v1/users/", {
           withCredentials: true,
         });
         console.log(response.data);
