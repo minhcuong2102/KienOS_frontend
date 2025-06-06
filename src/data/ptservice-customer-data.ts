@@ -15,8 +15,8 @@ export const usePTServiceCustomerData = (reloadTrigger: number, selectedValue: s
         setLoading(true);
 
         const url = selectedValue
-          ? rootPaths.root + `/api/v1/pt-services/customers?pt_service=${selectedValue}`
-          : rootPaths.root + `/api/v1/pt-services/customers`;
+          ? rootPaths.root + `/api/v1/pt-services/customers/?pt_service=${selectedValue}`
+          : rootPaths.root + `/api/v1/pt-services/customers/`;
 
 
         const response = await axiosPrivate.get(url, 
