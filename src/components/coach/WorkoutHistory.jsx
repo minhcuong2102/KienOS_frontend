@@ -139,7 +139,7 @@ const WorkoutHistory = () => {
   const handleBulkComplete = async () => {
 
     try {
-      const response = await axiosPrivate.post(rootPaths.root + "api/v1/workout-schedules/edit-multiple/", {
+      const response = await axiosPrivate.post(rootPaths.root + "/api/v1/workout-schedules/edit-multiple/", {
         ids: rowSelectionModel,
         completed: true,
       });
