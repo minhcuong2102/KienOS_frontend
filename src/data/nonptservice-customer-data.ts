@@ -15,7 +15,7 @@ export const useNonPTServiceCustomerData = (reloadTrigger: number, selectedValue
         setLoading(true);
 
         const url = selectedValue
-          ? rootPaths.root + `/api/v1/nonpt-services/customers/?nonpt_service=${selectedValue}/`
+          ? rootPaths.root + `/api/v1/nonpt-services/customers/?nonpt_service=${selectedValue}`
           : rootPaths.root + `/api/v1/nonpt-services/customers/`;
 
 
