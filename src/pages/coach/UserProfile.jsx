@@ -307,7 +307,11 @@ const UserProfile = () => {
 
           alert("Cập nhật hồ sơ thành công!");
           setTimeout(() => {
-            window.location.reload();
+            // window.location.reload();
+            const handleProfileClick = useCallback(() => {
+              setIsOpen(false);
+              navigate(paths.profile);
+            }, [navigate]);
           }, 10);
         } catch (error) {
           console.error("Error updating profile:", error);
