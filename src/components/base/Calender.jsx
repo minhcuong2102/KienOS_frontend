@@ -912,7 +912,7 @@ const Calendar = () => {
             control={
               <Checkbox
                 checked={attendance}
-                onChange={(e) => setAttendace(e.target.checked)}
+                onChange={(e) => setAttendance(e.target.checked)}
                 color="primary"
               />
             }
