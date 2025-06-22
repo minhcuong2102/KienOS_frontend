@@ -73,6 +73,7 @@ export const useScheduleData = (reloadTrigger: number) => {
             start_time: ws.start_time,
             end_time: ws.end_time,
             completed: ws.completed,
+            attendance: ws.attendance,
             
             training_plan: {
               id: ws.training_plan.id,
