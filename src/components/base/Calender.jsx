@@ -48,6 +48,7 @@ const Calendar = () => {
   const [customerId, setCustomerId] = useState("");
   const [sessionInfo, setSessionInfo] = useState("");
   const [completed, setCompleted] = useState(false);
+  const [attendance, setAttendance] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [repeatDays, setRepeatDays] = useState(0);
@@ -82,6 +83,7 @@ const Calendar = () => {
           trainingPlan: row.training_plan,
           customerSessionInfo: row.customer_session_info,
           completed: row.completed,
+          attendance: row.attendance,
         },
       }));
       setCurrentEvents(events);
@@ -253,6 +255,7 @@ const Calendar = () => {
     setSelectedTrainingPlan(event.extendedProps?.trainingPlan || null);
     setSessionInfo(event.extendedProps?.customerSessionInfo || null);
     setCompleted(event.extendedProps?.completed || false);
+    setAttendance(event.extendedProps?.attendance || false);
     setIsEditMode(true);
     fetchAllExercises();
     setOpenEventDialog(true);
@@ -357,6 +360,7 @@ const Calendar = () => {
         start_time: eventStart,
         end_time: eventEnd,
         completed: completed,
+        attendance: attendance,
         training_plan: {
           id: selectedTrainingPlan.id,
           estimated_duration: estimatedDuration,
@@ -450,6 +454,7 @@ const Calendar = () => {
               " / " +
               firstSchedule.customer?.total_sessions,
             completed: firstSchedule.completed,
+            attendance: firstSchedule.attendance,
           },
         };
 
@@ -472,6 +477,10 @@ const Calendar = () => {
           selectedEvent.setExtendedProp(
             "completed",
             updatedEvent.extendedProps.completed
+          );
+          selectedEvent.setExtendedProp(
+            "attendance",
+            updatedEvent.extendedProps.attendance
           );
           selectedEvent.setExtendedProp(
             "trainingPlan",
@@ -517,6 +526,7 @@ const Calendar = () => {
         setEventNote("");
         setIsEditMode(false);
         setCompleted(false);
+        setAttendance(false);
         setSelectedTrainingPlan(null);
         setTrainingPlans(null);
         setEstimatedDuration(null);
@@ -556,6 +566,7 @@ const Calendar = () => {
         setCurrentExercises([]);
         setSelectedEvent(null);
         setCompleted(false);
+        setAttendance(false);
       } catch (err) {
         console.error("Error deleting workout schedule:", err);
       } finally {
@@ -713,6 +724,7 @@ const Calendar = () => {
         trainingPlan: info.event.extendedProps.trainingPlan,
         customerSessionInfo: info.event.extendedProps.customerSessionInfo,
         completed: info.event.extendedProps.completed,
+        attendance: info.event.extendedProps.attendance,
       },
     };
     console.log(updatedEvent);
@@ -789,6 +801,7 @@ const Calendar = () => {
     setEstimatedDuration(null);
     setTrainingPlans(null);
     setCompleted(false);
+    setAttendance(false);
     setIsEditMode(false);
     setOpenEventDialog(false);
   };
@@ -894,6 +907,18 @@ const Calendar = () => {
               ))}
             </Select>
           </FormControl>
+          <FormControlLabel
+            disabled={!isEditMode}
+            control={
+              <Checkbox
+                checked={attendance}
+                onChange={(e) => setAttendace(e.target.checked)}
+                color="primary"
+              />
+            }
+            label="Đã xác nhận tham gia"
+            sx={{ marginTop: 2 }}
+          />
           <FormControlLabel
             disabled={!isEditMode}
             control={
