@@ -309,17 +309,30 @@ const WorkoutHistory = () => {
       field: "attendance",
       headerName: "Khách hàng có mặt",
       width: 150,
+      // renderCell: (params) => (
+      //   <Checkbox
+      //     checked={params.row?.attendance}
+      //     disabled
+      //     color={params.row?.attendance ? "success" : "error"}
+      //   />
+      // ),
       renderCell: (params) => (
         <Checkbox
           checked={params.row?.attendance}
           disabled
-          color={params.row?.attendance ? "success" : "error"}
+          sx={{
+            color: params.row?.attendance ? 'green' : 'red',
+            '&.Mui-checked': {
+              color: params.row?.attendance ? 'green' : 'red',
+            },
+          }}
         />
       ),
       headerAlign: "center",
       align: "center",
       flex: 1,
     },
+    
     {
       field: "completed",
       headerName: "Đã hoàn thành",
