@@ -414,6 +414,7 @@ const Calendar = () => {
         console.log(usedSessions);
         // console.log(total_sessions);
         const firstSchedule = response.data[0];
+        console.log(response.data);
         console.log(firstSchedule);
         // const updatedEvent = {
         //   id: response.data.id,
