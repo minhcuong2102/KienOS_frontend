@@ -337,11 +337,23 @@ const WorkoutHistory = () => {
       field: "completed",
       headerName: "Đã hoàn thành",
       width: 150,
+      // renderCell: (params) => (
+      //   <Checkbox
+      //     checked={params.row?.completed}
+      //     disabled
+      //     color={params.row?.completed ? "success" : "error"}
+      //   />
+      // ),
       renderCell: (params) => (
         <Checkbox
           checked={params.row?.completed}
           disabled
-          color={params.row?.completed ? "success" : "error"}
+          sx={{
+            color: params.row?.completed ? 'green' : 'red',
+            '&.Mui-checked': {
+              color: params.row?.completed ? 'green' : 'red',
+            },
+          }}
         />
       ),
       headerAlign: "center",
