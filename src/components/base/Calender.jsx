@@ -433,6 +433,7 @@ const Calendar = () => {
               trainingPlan: response.data.training_plan,
               customerSessionInfo: usedSessions.toString() + " / " + response.data.customer.total_sessions,
               completed: response.data.completed,
+              attendance: response.data.attendance,
             },
           };
         } else {
