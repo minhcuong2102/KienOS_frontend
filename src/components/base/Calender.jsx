@@ -416,7 +416,7 @@ const Calendar = () => {
         const firstSchedule = response.data[0];
         console.log(response.data);
         console.log(firstSchedule);
-        const updatedEvent;
+        const updatedEvent = null;
         if (isEditMode){
             updatedEvent = {
             id: response.data.id,
