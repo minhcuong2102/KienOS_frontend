@@ -338,7 +338,9 @@ const WorkoutHistory = () => {
   ];
 
   const visibleColumns = useMemo(
-    () => columns.filter((column) => !["id", "attendance"].includes(column.field)),
+    // () => columns.filter((column) => !["id", "attendance"].includes(column.field)),
+    // [columns]
+    () => columns.filter((column) => !["id"].includes(column.field)),
     [columns]
   );
 
