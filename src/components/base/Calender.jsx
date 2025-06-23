@@ -416,8 +416,9 @@ const Calendar = () => {
         const firstSchedule = response.data[0];
         console.log(response.data);
         console.log(firstSchedule);
+        const updatedEvent;
         if (isEditMode){
-            const updatedEvent = {
+            updatedEvent = {
             id: response.data.id,
             title: `${selectedTrainingPlan.overview}`,
             start: `${response.data.start_time}`,
@@ -437,7 +438,7 @@ const Calendar = () => {
             },
           };
         } else {
-            const updatedEvent = {
+            updatedEvent = {
             id: firstSchedule.id,
             title: `${selectedTrainingPlan.overview}`,
             start: `${firstSchedule.start_time}`,
