@@ -413,9 +413,7 @@ const Calendar = () => {
         const bgColor = getCustomerColor(currentEvents, customerId);
         console.log(usedSessions);
         // console.log(total_sessions);
-        const firstSchedule = response.data[0];
         console.log(response.data);
-        console.log(firstSchedule);
         let updatedEvent = null;
         if (isEditMode){
             updatedEvent = {
@@ -438,7 +436,9 @@ const Calendar = () => {
             },
           };
         } else {
-            updatedEvent = {
+          const firstSchedule = response.data[0];
+          console.log(firstSchedule);
+          updatedEvent = {
             id: firstSchedule.id,
             title: `${selectedTrainingPlan.overview}`,
             start: `${firstSchedule.start_time}`,
@@ -506,15 +506,17 @@ const Calendar = () => {
           const eventEndTime = formatTime(eventEnd);
 
           let notificationMessage;
-
+          const trainingOverview = Array.isArray(response.data)
+          ? response.data[0]?.training_plan?.overview
+          : response.data?.training_plan?.overview;
           if (!selectedEvent?.id) {
             notificationMessage = `Bạn có buổi tập mới từ ${eventStartTime} đến ${eventEndTime} ngày ${eventStartDate}. ` + 
-                              `Tổng quan buổi tập: ${response.data[0].training_plan.overview}. ` +
+                              `Tổng quan buổi tập: ${trainingOverview}. ` +
                               `Hãy kiểm tra lịch tập của bạn để xem chi tiết hơn.`;
           } else {
             notificationMessage = `Lịch tập của bạn đã được thay đổi. ` +  
                               `Thời gian mới: từ ${eventStartTime} đến ${eventEndTime} ngày ${eventStartDate}. ` +
-                              `Tổng quan buổi tập: ${response.data[0].training_plan.overview}. ` +
+                              `Tổng quan buổi tập: ${trainingOverview}. ` +
                               `Hãy kiểm tra lịch tập của bạn để xem chi tiết hơn.`;
           }
 
