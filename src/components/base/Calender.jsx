@@ -416,49 +416,52 @@ const Calendar = () => {
         const firstSchedule = response.data[0];
         console.log(response.data);
         console.log(firstSchedule);
-        // const updatedEvent = {
-        //   id: response.data.id,
-        //   title: `${selectedTrainingPlan.overview}`,
-        //   start: `${response.data.start_time}`,
-        //   end: `${response.data.end_time}`,
-        //   allDay: false,
-        //   backgroundColor: bgColor,
-        //   borderColor: bgColor,
-        //   extendedProps: {
-        //     customerId: customerId,
-        //     customerName:
-        //       customers.find((c) => c.id === customerId)?.first_name +
-        //       " " +
-        //       customers.find((c) => c.id === customerId)?.last_name,
-        //     trainingPlan: response.data.training_plan,
-        //     customerSessionInfo: usedSessions.toString() + " / " + response.data.customer.total_sessions,
-        //     completed: response.data.completed,
-        //   },
-        // };
-        const updatedEvent = {
-          id: firstSchedule.id,
-          title: `${selectedTrainingPlan.overview}`,
-          start: `${firstSchedule.start_time}`,
-          end: `${firstSchedule.end_time}`,
-          allDay: false,
-          backgroundColor: bgColor,
-          borderColor: bgColor,
-          extendedProps: {
-            customerId: customerId,
-            customerName:
-              customers.find((c) => c.id === customerId)?.first_name +
-              " " +
-              customers.find((c) => c.id === customerId)?.last_name,
-            trainingPlan: firstSchedule.training_plan,
-            customerSessionInfo:
-              usedSessions.toString() +
-              " / " +
-              firstSchedule.customer?.total_sessions,
-            completed: firstSchedule.completed,
-            attendance: firstSchedule.attendance,
-          },
-        };
-
+        if (isEditMode){
+            const updatedEvent = {
+            id: response.data.id,
+            title: `${selectedTrainingPlan.overview}`,
+            start: `${response.data.start_time}`,
+            end: `${response.data.end_time}`,
+            allDay: false,
+            backgroundColor: bgColor,
+            borderColor: bgColor,
+            extendedProps: {
+              customerId: customerId,
+              customerName:
+                customers.find((c) => c.id === customerId)?.first_name +
+                " " +
+                customers.find((c) => c.id === customerId)?.last_name,
+              trainingPlan: response.data.training_plan,
+              customerSessionInfo: usedSessions.toString() + " / " + response.data.customer.total_sessions,
+              completed: response.data.completed,
+            },
+          };
+        } else {
+            const updatedEvent = {
+            id: firstSchedule.id,
+            title: `${selectedTrainingPlan.overview}`,
+            start: `${firstSchedule.start_time}`,
+            end: `${firstSchedule.end_time}`,
+            allDay: false,
+            backgroundColor: bgColor,
+            borderColor: bgColor,
+            extendedProps: {
+              customerId: customerId,
+              customerName:
+                customers.find((c) => c.id === customerId)?.first_name +
+                " " +
+                customers.find((c) => c.id === customerId)?.last_name,
+              trainingPlan: firstSchedule.training_plan,
+              customerSessionInfo:
+                usedSessions.toString() +
+                " / " +
+                firstSchedule.customer?.total_sessions,
+              completed: firstSchedule.completed,
+              attendance: firstSchedule.attendance,
+            },
+          };
+        }
+        
         if (selectedEvent?.id) {
           selectedEvent.setProp("title", updatedEvent.title);
           selectedEvent.setStart(updatedEvent.start);
