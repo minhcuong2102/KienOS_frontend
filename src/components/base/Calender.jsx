@@ -916,7 +916,7 @@ const Calendar = () => {
                 color="primary"
               />
             }
-            label="Đã xác nhận tham gia"
+            label="Xác nhận tham gia"
             sx={{ marginTop: 2 }}
           />
           <FormControlLabel
