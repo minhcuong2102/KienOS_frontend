@@ -461,6 +461,7 @@ const Calendar = () => {
             },
           };
         }
+        console.log(updatedEvent);
         
         if (selectedEvent?.id) {
           selectedEvent.setProp("title", updatedEvent.title);
