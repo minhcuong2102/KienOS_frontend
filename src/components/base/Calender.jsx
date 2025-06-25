@@ -333,6 +333,11 @@ const Calendar = () => {
       return;
     }
 
+    if (completed && !attendance) {
+      alert("Không thể hoàn thành buổi tập mà chưa tham gia!");
+      return;
+    }
+    
     const startTime = new Date(eventStart);
     const endTime = new Date(eventEnd);
     const today = new Date();
